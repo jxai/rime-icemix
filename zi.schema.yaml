@@ -1,0 +1,12 @@
+# Rime schema
+# encoding: utf-8
+
+schema:
+  schema_id: zi
+  name: 带音调拼音
+  version: "0.1"
+  description: |
+    反查拼音字典wrapper
+
+translator:
+  dictionary: zi
