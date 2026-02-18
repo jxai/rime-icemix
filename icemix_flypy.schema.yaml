@@ -414,7 +414,8 @@ translator:
   comment_format: # 标记拼音注释，供 corrector.lua 做判断用
     - xform/^/［/
     - xform/$/］/
-  preedit_format: []
+  preedit_format:
+    - xform/^\s*(.*)$/⸢$1⸣ / # 标识当前候选项对应输入片段
 
 # 次翻译器，英文
 melt_eng:
