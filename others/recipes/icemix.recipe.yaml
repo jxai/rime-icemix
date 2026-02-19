@@ -27,7 +27,13 @@ install_files: >-
   rime_ice.dict.yaml
   t9.schema.yaml
   icemix_common.yaml
-  icemix_${double:-flypy}.schema.yaml
+  icemix_zrm.schema.yaml
+  icemix_abc.schema.yaml
+  icemix_mspy.schema.yaml
+  icemix_sogou.schema.yaml
+  icemix_flypy.schema.yaml
+  icemix_ziguang.schema.yaml
+  icemix_jiajia.schema.yaml
   zi.schema.yaml
   zi.dict.yaml
   symbols_v.yaml
