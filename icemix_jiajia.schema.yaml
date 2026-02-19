@@ -26,9 +26,7 @@ schema:
     混拼方案，支持混合输入 拼音加加双拼 + 雾凇拼音 + 简拼
     https://github.com/jxai/rime-icemix
   dependencies:
-    - melt_eng # 英文输入，作为次翻译器挂载到拼音方案
-    - radical_pinyin # 部件拆字，反查及辅码
-    - zi # 反查带音调拼音
+    __include: icemix_common:/schema/dependencies
 
 switches:
   __include: icemix_common:/switches

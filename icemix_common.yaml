@@ -3,6 +3,13 @@
 # 各 icemix 双拼方案通过 __include 引用此文件中的共用部分，
 # 仅在各自的 schema 文件中定义 schema、speller、translator/prism、cn_en/user_dict 等差异项。
 
+# 方案说明
+schema:
+  dependencies:
+    - melt_eng # 英文输入，作为次翻译器挂载到拼音方案
+    - radical_pinyin # 部件拆字，反查及辅码
+    - zi # 反查带音调拼音
+
 # 开关
 # reset: 默认状态。注释掉后，切换窗口时不会重置到默认状态。
 # states: 方案选单显示的名称。可以注释掉，仍可以通过快捷键切换。
