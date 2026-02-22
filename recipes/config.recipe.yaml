@@ -1,7 +1,7 @@
 # encoding: utf-8
 ---
 recipe:
-  Rx: others/recipes/config
+  Rx: recipes/config
   args:
     - schema=flypy
   description: >-

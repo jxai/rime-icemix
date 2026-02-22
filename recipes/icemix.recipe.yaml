@@ -1,11 +1,11 @@
 # encoding: utf-8
 ---
 recipe:
-  Rx: others/recipes/icemix
-  args:
+  Rx: recipes/icemix
+  args: # the default value here is for doc only
     - double=flypy
   description: >-
-    Select a double pinyin dialect for icemix schema.
+    `double`: double pinyin dialect for icemix schema
       - flypy（小鹤）[default]
       - zrm（自然码）
       - mspy（微软）
