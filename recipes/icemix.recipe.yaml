@@ -47,10 +47,13 @@ install_files: >-
 patch_files:
   radical_pinyin.custom.yaml:
     - patch/+:
-        # 拆字反查共用对应的混拼方案
         speller/algebra:
+          # 拆字反查共用对应的混拼方案
           __include: icemix_${double:-flypy}.schema.yaml:speller/algebra
   melt_eng.custom.yaml:
     - patch/+:
         speller/algebra:
           __include: melt_eng.schema.yaml:/algebra_${double:-flypy}
+  default.custom.yaml:
+    - patch/schema_list/+:
+        - schema: icemix_${double:-flypy}
