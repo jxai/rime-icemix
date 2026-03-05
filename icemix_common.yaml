@@ -508,3 +508,16 @@ editor:
 debugger:
   enable: false # 于comment显示调试信息
   enable_log: false # 日志写入 /tmp/rime.ibus.INFO (enable也必须为true)
+
+# 拼写设定
+speller:
+  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
+  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`
+  # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏，排除其他字符情况类似
+  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
+  delimiter: " '" # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
+  algebra:
+    # 超级简拼
+    - abbrev/^([zcs]h).+$/$1/ # zh ch sh 视为整体（ch'sh → 城市），而非（c'h's'h → 吃好睡好）
+    - abbrev/^([a-z]).+$/$1/
+    - erase/^xx$/

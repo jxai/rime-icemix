@@ -120,50 +120,44 @@ debugger:
 
 # 拼写设定
 speller:
-  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA;`
-  # initials 定义仅作为始码的按键，排除 ` ; 让单个的 ` ; 可以直接上屏
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
-  delimiter: " '" # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
-  algebra:
-    # 超级简拼
-    - abbrev/^([zcs]h).+$/$1/ # zh ch sh 视为整体（ch'sh → 城市），而非（c'h's'h → 吃好睡好）
-    - abbrev/^([a-z]).+$/$1/
-    - erase/^xx$/
-    # 以下基于radical_pinyin.schema.yaml:algebra_sogou修改，和拆字反查共用一致的混拼方案
-    - derive/^([jqxy])u(?=^|$|')/$1v/
-    - derive/'([jqxy])u(?=^|$|')/'$1v/
-    - derive/^([aoe].*)(?=^|$|')/o$1/
-    - derive/'([aoe].*)(?=^|$|')/'o$1/
-    - derive/^([ae])(.*)(?=^|$|')/$1$1$2/
-    - derive/'([ae])(.*)(?=^|$|')/'$1$1$2/
-    - derive/iu(?=^|$|')/<q>/
-    - derive/[iu]a(?=^|$|')/<w>/
-    - derive/er(?=^|$|')|[uv]an(?=^|$|')/<r>/
-    - derive/[uv]e(?=^|$|')/<t>/
-    - derive/v(?=^|$|')|uai(?=^|$|')/<y>/
-    - derive/^sh/<u>/
-    - derive/^ch/<i>/
-    - derive/^zh/<v>/
-    - derive/'sh/'<u>/
-    - derive/'ch/'<i>/
-    - derive/'zh/'<v>/
-    - derive/uo(?=^|$|')/<o>/
-    - derive/[uv]n(?=^|$|')/<p>/
-    - derive/([a-z>])i?ong(?=^|$|')/$1<s>/
-    - derive/[iu]ang(?=^|$|')/<d>/
-    - derive/([a-z>])en(?=^|$|')/$1<f>/
-    - derive/([a-z>])eng(?=^|$|')/$1<g>/
-    - derive/([a-z>])ang(?=^|$|')/$1<h>/
-    - derive/ian(?=^|$|')/<m>/
-    - derive/([a-z>])an(?=^|$|')/$1<j>/
-    - derive/iao(?=^|$|')/<c>/
-    - derive/([a-z>])ao(?=^|$|')/$1<k>/
-    - derive/([a-z>])ai(?=^|$|')/$1<l>/
-    - derive/([a-z>])ei(?=^|$|')/$1<z>/
-    - derive/ie(?=^|$|')/<x>/
-    - derive/ui(?=^|$|')/<v>/
-    - derive/([a-z>])ou(?=^|$|')/$1<b>/
-    - derive/in(?=^|$|')/<n>/
-    - derive/ing(?=^|$|')/;/
-    - xform/'|<|>//
+  __include: icemix_common:/speller
+  __patch:
+    alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA;` # 搜狗双拼用 ; 键映射 ing，需要将 ; 加入 alphabet
+    algebra/+:
+      # 以下基于radical_pinyin.schema.yaml:algebra_sogou修改，和拆字反查共用一致的混拼方案
+      - derive/^([jqxy])u(?=^|$|')/$1v/
+      - derive/'([jqxy])u(?=^|$|')/'$1v/
+      - derive/^([aoe].*)(?=^|$|')/o$1/
+      - derive/'([aoe].*)(?=^|$|')/'o$1/
+      - derive/^([ae])(.*)(?=^|$|')/$1$1$2/
+      - derive/'([ae])(.*)(?=^|$|')/'$1$1$2/
+      - derive/iu(?=^|$|')/<q>/
+      - derive/[iu]a(?=^|$|')/<w>/
+      - derive/er(?=^|$|')|[uv]an(?=^|$|')/<r>/
+      - derive/[uv]e(?=^|$|')/<t>/
+      - derive/v(?=^|$|')|uai(?=^|$|')/<y>/
+      - derive/^sh/<u>/
+      - derive/^ch/<i>/
+      - derive/^zh/<v>/
+      - derive/'sh/'<u>/
+      - derive/'ch/'<i>/
+      - derive/'zh/'<v>/
+      - derive/uo(?=^|$|')/<o>/
+      - derive/[uv]n(?=^|$|')/<p>/
+      - derive/([a-z>])i?ong(?=^|$|')/$1<s>/
+      - derive/[iu]ang(?=^|$|')/<d>/
+      - derive/([a-z>])en(?=^|$|')/$1<f>/
+      - derive/([a-z>])eng(?=^|$|')/$1<g>/
+      - derive/([a-z>])ang(?=^|$|')/$1<h>/
+      - derive/ian(?=^|$|')/<m>/
+      - derive/([a-z>])an(?=^|$|')/$1<j>/
+      - derive/iao(?=^|$|')/<c>/
+      - derive/([a-z>])ao(?=^|$|')/$1<k>/
+      - derive/([a-z>])ai(?=^|$|')/$1<l>/
+      - derive/([a-z>])ei(?=^|$|')/$1<z>/
+      - derive/ie(?=^|$|')/<x>/
+      - derive/ui(?=^|$|')/<v>/
+      - derive/([a-z>])ou(?=^|$|')/$1<b>/
+      - derive/in(?=^|$|')/<n>/
+      - derive/ing(?=^|$|')/;/
+      - xform/'|<|>//

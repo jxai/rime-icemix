@@ -97,44 +97,37 @@ debugger:
 
 # 拼写设定
 speller:
-  # 如果不想让什么标点直接上屏，可以加在 alphabet，或者编辑标点符号为两个及以上的映射
-  alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA`
-  # initials 定义仅作为始码的按键，排除 ` 让单个的 ` 可以直接上屏
-  initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
-  delimiter: " '" # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
-  algebra:
-    # 超级简拼
-    - abbrev/^([zcs]h).+$/$1/ # zh ch sh 视为整体（ch'sh → 城市），而非（c'h's'h → 吃好睡好）
-    - abbrev/^([a-z]).+$/$1/
-    - erase/^xx$/
-    # 以下基于radical_pinyin.schema.yaml:algebra_abc修改，和拆字反查共用一致的混拼方案
-    - derive/^zh/<a>/
-    - derive/^ch/<e>/
-    - derive/^sh/<v>/
-    - derive/'zh/'<a>/
-    - derive/'ch/'<e>/
-    - derive/'sh/'<v>/
-    - derive/^([aoe].*)(?=^|$|')/<o>$1/
-    - derive/'([aoe].*)(?=^|$|')/'<o>$1/
-    - derive/ei(?=^|$|')/<q>/
-    - derive/ian(?=^|$|')/<w>/
-    - derive/er(?=^|$|')|iu(?=^|$|')/<r>/
-    - derive/[iu]ang(?=^|$|')/<t>/
-    - derive/ing(?=^|$|')/<y>/
-    - derive/uo(?=^|$|')/<o>/
-    - derive/uan(?=^|$|')/<p>/
-    - derive/([a-z>])i?ong(?=^|$|')/$1<s>/
-    - derive/[iu]a(?=^|$|')/<d>/
-    - derive/en(?=^|$|')/<f>/
-    - derive/eng(?=^|$|')/<g>/
-    - derive/ang(?=^|$|')/<h>/
-    - derive/an(?=^|$|')/<j>/
-    - derive/iao(?=^|$|')/<z>/
-    - derive/ao(?=^|$|')/<k>/
-    - derive/in(?=^|$|')|uai(?=^|$|')/<c>/
-    - derive/ai(?=^|$|')/<l>/
-    - derive/ie(?=^|$|')/<x>/
-    - derive/ou(?=^|$|')/<b>/
-    - derive/un(?=^|$|')/<n>/
-    - derive/[uv]e(?=^|$|')|ui(?=^|$|')/<m>/
-    - xform/'|<|>//
+  __include: icemix_common:/speller
+  __patch:
+    algebra/+:
+      # 以下基于radical_pinyin.schema.yaml:algebra_abc修改，和拆字反查共用一致的混拼方案
+      - derive/^zh/<a>/
+      - derive/^ch/<e>/
+      - derive/^sh/<v>/
+      - derive/'zh/'<a>/
+      - derive/'ch/'<e>/
+      - derive/'sh/'<v>/
+      - derive/^([aoe].*)(?=^|$|')/<o>$1/
+      - derive/'([aoe].*)(?=^|$|')/'<o>$1/
+      - derive/ei(?=^|$|')/<q>/
+      - derive/ian(?=^|$|')/<w>/
+      - derive/er(?=^|$|')|iu(?=^|$|')/<r>/
+      - derive/[iu]ang(?=^|$|')/<t>/
+      - derive/ing(?=^|$|')/<y>/
+      - derive/uo(?=^|$|')/<o>/
+      - derive/uan(?=^|$|')/<p>/
+      - derive/([a-z>])i?ong(?=^|$|')/$1<s>/
+      - derive/[iu]a(?=^|$|')/<d>/
+      - derive/en(?=^|$|')/<f>/
+      - derive/eng(?=^|$|')/<g>/
+      - derive/ang(?=^|$|')/<h>/
+      - derive/an(?=^|$|')/<j>/
+      - derive/iao(?=^|$|')/<z>/
+      - derive/ao(?=^|$|')/<k>/
+      - derive/in(?=^|$|')|uai(?=^|$|')/<c>/
+      - derive/ai(?=^|$|')/<l>/
+      - derive/ie(?=^|$|')/<x>/
+      - derive/ou(?=^|$|')/<b>/
+      - derive/un(?=^|$|')/<n>/
+      - derive/[uv]e(?=^|$|')|ui(?=^|$|')/<m>/
+      - xform/'|<|>//
