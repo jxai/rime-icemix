@@ -73,7 +73,7 @@ engine:
     - simplifier@emoji # Emoji
     - simplifier@traditionalize # 简繁切换
     - lua_filter@*search@radical_pinyin # 部件拆字辅码
-    # - lua_filter@*debugger
+    - lua_filter@*debugger
     - uniquifier # 去重
 
 # Lua 配置: 日期、时间、星期、ISO 8601、时间戳的触发关键字
@@ -503,3 +503,8 @@ editor:
     Control+BackSpace: back_syllable # Ctrl+退格键：删除一个音节
     Control+Delete: delete_candidate # Ctrl+Delete键：删除或降权候选项
     Escape: cancel # Esc 键：取消输入
+
+# debugger 调试用filter模块
+debugger:
+  enable: false # 于comment显示调试信息
+  enable_log: false # 日志写入 /tmp/rime.ibus.INFO (enable也必须为true)
