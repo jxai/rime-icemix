@@ -101,7 +101,7 @@ speller:
   __patch:
     algebra/+:
       # 和拆字反查共用混拼方案
-      - xform/^/'/
+      # NOTE: prepended with ' in icemix_common
       - derive/'([jqxy])u(?=$|')/'$1v/
       - derive/'([aoe])([ioun]|ng)?(?=$|')/'$1$1$2/
       - derive/iu(?=$|')/<n>/

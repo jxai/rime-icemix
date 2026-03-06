@@ -517,7 +517,8 @@ speller:
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
   delimiter: " '" # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
   algebra:
-    # 超级简拼
-    - abbrev/^([zcs]h).+$/$1/ # zh ch sh 视为整体（ch'sh → 城市），而非（c'h's'h → 吃好睡好）
-    - abbrev/^([a-z]).+$/$1/
     - erase/^xx$/
+    # 超级简拼
+    - xform/^/'/ # prepends ' for simplified and unified processing
+    - abbrev/'([zcs]h).+?(?=$|')/'$1/ # zh ch sh 视为整体（ch'sh → 城市），而非（c'h's'h → 吃好睡好）
+    - abbrev/'([a-z]).+?(?=$|')/'$1/

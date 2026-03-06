@@ -110,7 +110,7 @@ speller:
     alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA;` # 紫光双拼用 ; 键映射 ing，需要将 ; 加入 alphabet
     algebra/+:
       # 和拆字反查共用混拼方案
-      - xform/^/'/
+      # NOTE: prepended with ' in icemix_common
       - derive/'([jqxy])u(?=$|')/'$1v/
       - derive/'([aoe].*?)(?=$|')/'<o>$1/
       - derive/en(?=$|')/<w>/
