@@ -112,10 +112,10 @@ speller:
       # 和拆字反查共用混拼方案
       - xform/^/'/
       - derive/'([jqxy])u(?=$|')/'$1v/
-      - derive/'([aoe].*)(?=$|')/'<o>$1/
+      - derive/'([aoe].*?)(?=$|')/'<o>$1/
       - derive/en(?=$|')/<w>/
       - derive/eng(?=$|')/<t>/
-      - derive/in(?=$|')|uai(?=$|')/<y>/
+      - derive/(in|uai)(?=$|')/<y>/
       - derive/'zh/'<u>/
       - derive/'sh/'<i>/
       - derive/'ch/'<a>/
@@ -126,14 +126,14 @@ speller:
       - derive/ie(?=$|')/<d>/
       - derive/ian(?=$|')/<f>/
       - derive/([a-z>])i?ong(?=$|')/$1<h>/
-      - derive/er(?=$|')|iu(?=$|')/<j>/
+      - derive/(er|iu)(?=$|')/<j>/
       - derive/ei(?=$|')/<k>/
       - derive/uan(?=$|')/<l>/
       - derive/ing(?=$|')/;/
       - derive/ou(?=$|')/<z>/
       - derive/[iu]a(?=$|')/<x>/
       - derive/iao(?=$|')/<b>/
-      - derive/ue(?=$|')|ui(?=$|')|ve(?=$|')/<n>/
+      - derive/(ue|ui|ve)(?=$|')/<n>/
       - derive/un(?=$|')/<m>/
       - derive/ao(?=$|')/<q>/
       - derive/an(?=$|')/<r>/

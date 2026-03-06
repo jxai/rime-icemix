@@ -103,13 +103,12 @@ speller:
       # 和拆字反查共用混拼方案
       - xform/^/'/
       - derive/'([jqxy])u(?=$|')/'$1v/
-      - derive/'([aoe])([ioun])(?=$|')/'$1$1$2/
-      - derive/'([aoe])(ng)?(?=$|')/'$1$1$2/
+      - derive/'([aoe])([ioun]|ng)?(?=$|')/'$1$1$2/
       - derive/iu(?=$|')/<q>/
       - derive/[iu]a(?=$|')/<w>/
       - derive/[uv]an(?=$|')/<r>/
       - derive/[uv]e(?=$|')/<t>/
-      - derive/ing(?=$|')|uai(?=$|')/<y>/
+      - derive/(ing|uai)(?=$|')/<y>/
       - derive/'sh/'<u>/
       - derive/'ch/'<i>/
       - derive/'zh/'<v>/

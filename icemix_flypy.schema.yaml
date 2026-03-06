@@ -103,8 +103,7 @@ speller:
       # 和拆字反查共用混拼方案
       - xform/^/'/
       - derive/'([jqxy])u(?=$|')/'$1v/
-      - derive/'([aoe])([ioun])(?=$|')/'$1$1$2/
-      - derive/'([aoe])(ng)?(?=$|')/'$1$1$2/
+      - derive/'([aoe])([ioun]|ng)?(?=$|')/'$1$1$2/
       - derive/iu(?=$|')/<q>/
       - derive/(.)ei(?=$|')/$1<w>/
       - derive/uan(?=$|')/<r>/
@@ -116,7 +115,7 @@ speller:
       - derive/uo(?=$|')/<o>/
       - derive/ie(?=$|')/<p>/
       - derive/([a-z>])i?ong(?=$|')/$1<s>/
-      - derive/ing(?=$|')|uai(?=$|')/<k>/
+      - derive/(ing|uai)(?=$|')/<k>/
       - derive/([a-z>])ai(?=$|')/$1<d>/
       - derive/([a-z>])en(?=$|')/$1<f>/
       - derive/([a-z>])eng(?=$|')/$1<g>/

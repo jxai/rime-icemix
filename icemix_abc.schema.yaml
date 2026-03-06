@@ -105,10 +105,10 @@ speller:
       - derive/'zh/'<a>/
       - derive/'ch/'<e>/
       - derive/'sh/'<v>/
-      - derive/'([aoe].*)(?=$|')/'<o>$1/
+      - derive/'([aoe].*?)(?=$|')/'<o>$1/
       - derive/ei(?=$|')/<q>/
       - derive/ian(?=$|')/<w>/
-      - derive/er(?=$|')|iu(?=$|')/<r>/
+      - derive/(er|iu)(?=$|')/<r>/
       - derive/[iu]ang(?=$|')/<t>/
       - derive/ing(?=$|')/<y>/
       - derive/uo(?=$|')/<o>/
@@ -121,10 +121,10 @@ speller:
       - derive/an(?=$|')/<j>/
       - derive/iao(?=$|')/<z>/
       - derive/ao(?=$|')/<k>/
-      - derive/in(?=$|')|uai(?=$|')/<c>/
+      - derive/(in|uai)(?=$|')/<c>/
       - derive/ai(?=$|')/<l>/
       - derive/ie(?=$|')/<x>/
       - derive/ou(?=$|')/<b>/
       - derive/un(?=$|')/<n>/
-      - derive/[uv]e(?=$|')|ui(?=$|')/<m>/
+      - derive/([uv]e|ui)(?=$|')/<m>/
       - xform/['<>]//
