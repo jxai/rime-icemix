@@ -124,40 +124,35 @@ speller:
   __patch:
     alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA;` # 搜狗双拼用 ; 键映射 ing，需要将 ; 加入 alphabet
     algebra/+:
-      # 以下基于radical_pinyin.schema.yaml:algebra_sogou修改，和拆字反查共用一致的混拼方案
-      - derive/^([jqxy])u(?=^|$|')/$1v/
-      - derive/'([jqxy])u(?=^|$|')/'$1v/
-      - derive/^([aoe].*)(?=^|$|')/o$1/
-      - derive/'([aoe].*)(?=^|$|')/'o$1/
-      - derive/^([ae])(.*)(?=^|$|')/$1$1$2/
-      - derive/'([ae])(.*)(?=^|$|')/'$1$1$2/
-      - derive/iu(?=^|$|')/<q>/
-      - derive/[iu]a(?=^|$|')/<w>/
-      - derive/er(?=^|$|')|[uv]an(?=^|$|')/<r>/
-      - derive/[uv]e(?=^|$|')/<t>/
-      - derive/v(?=^|$|')|uai(?=^|$|')/<y>/
-      - derive/^sh/<u>/
-      - derive/^ch/<i>/
-      - derive/^zh/<v>/
+      # 和拆字反查共用混拼方案
+      - xform/^/'/
+      - derive/'([jqxy])u(?=$|')/'$1v/
+      - derive/'([aoe].*)(?=$|')/'o$1/
+      - derive/'([ae])(.*)(?=$|')/'$1$1$2/
+      - derive/iu(?=$|')/<q>/
+      - derive/[iu]a(?=$|')/<w>/
+      - derive/er(?=$|')|[uv]an(?=$|')/<r>/
+      - derive/[uv]e(?=$|')/<t>/
+      - derive/v(?=$|')|uai(?=$|')/<y>/
       - derive/'sh/'<u>/
       - derive/'ch/'<i>/
       - derive/'zh/'<v>/
-      - derive/uo(?=^|$|')/<o>/
-      - derive/[uv]n(?=^|$|')/<p>/
-      - derive/([a-z>])i?ong(?=^|$|')/$1<s>/
-      - derive/[iu]ang(?=^|$|')/<d>/
-      - derive/([a-z>])en(?=^|$|')/$1<f>/
-      - derive/([a-z>])eng(?=^|$|')/$1<g>/
-      - derive/([a-z>])ang(?=^|$|')/$1<h>/
-      - derive/ian(?=^|$|')/<m>/
-      - derive/([a-z>])an(?=^|$|')/$1<j>/
-      - derive/iao(?=^|$|')/<c>/
-      - derive/([a-z>])ao(?=^|$|')/$1<k>/
-      - derive/([a-z>])ai(?=^|$|')/$1<l>/
-      - derive/([a-z>])ei(?=^|$|')/$1<z>/
-      - derive/ie(?=^|$|')/<x>/
-      - derive/ui(?=^|$|')/<v>/
-      - derive/([a-z>])ou(?=^|$|')/$1<b>/
-      - derive/in(?=^|$|')/<n>/
-      - derive/ing(?=^|$|')/;/
-      - xform/'|<|>//
+      - derive/uo(?=$|')/<o>/
+      - derive/[uv]n(?=$|')/<p>/
+      - derive/([a-z>])i?ong(?=$|')/$1<s>/
+      - derive/[iu]ang(?=$|')/<d>/
+      - derive/([a-z>])en(?=$|')/$1<f>/
+      - derive/([a-z>])eng(?=$|')/$1<g>/
+      - derive/([a-z>])ang(?=$|')/$1<h>/
+      - derive/ian(?=$|')/<m>/
+      - derive/([a-z>])an(?=$|')/$1<j>/
+      - derive/iao(?=$|')/<c>/
+      - derive/([a-z>])ao(?=$|')/$1<k>/
+      - derive/([a-z>])ai(?=$|')/$1<l>/
+      - derive/([a-z>])ei(?=$|')/$1<z>/
+      - derive/ie(?=$|')/<x>/
+      - derive/ui(?=$|')/<v>/
+      - derive/([a-z>])ou(?=$|')/$1<b>/
+      - derive/in(?=$|')/<n>/
+      - derive/ing(?=$|')/;/
+      - xform/['<>]//

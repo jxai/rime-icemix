@@ -100,34 +100,31 @@ speller:
   __include: icemix_common:/speller
   __patch:
     algebra/+:
-      # 以下基于radical_pinyin.schema.yaml:algebra_abc修改，和拆字反查共用一致的混拼方案
-      - derive/^zh/<a>/
-      - derive/^ch/<e>/
-      - derive/^sh/<v>/
+      # 和拆字反查共用混拼方案
+      - xform/^/'/
       - derive/'zh/'<a>/
       - derive/'ch/'<e>/
       - derive/'sh/'<v>/
-      - derive/^([aoe].*)(?=^|$|')/<o>$1/
-      - derive/'([aoe].*)(?=^|$|')/'<o>$1/
-      - derive/ei(?=^|$|')/<q>/
-      - derive/ian(?=^|$|')/<w>/
-      - derive/er(?=^|$|')|iu(?=^|$|')/<r>/
-      - derive/[iu]ang(?=^|$|')/<t>/
-      - derive/ing(?=^|$|')/<y>/
-      - derive/uo(?=^|$|')/<o>/
-      - derive/uan(?=^|$|')/<p>/
-      - derive/([a-z>])i?ong(?=^|$|')/$1<s>/
-      - derive/[iu]a(?=^|$|')/<d>/
-      - derive/en(?=^|$|')/<f>/
-      - derive/eng(?=^|$|')/<g>/
-      - derive/ang(?=^|$|')/<h>/
-      - derive/an(?=^|$|')/<j>/
-      - derive/iao(?=^|$|')/<z>/
-      - derive/ao(?=^|$|')/<k>/
-      - derive/in(?=^|$|')|uai(?=^|$|')/<c>/
-      - derive/ai(?=^|$|')/<l>/
-      - derive/ie(?=^|$|')/<x>/
-      - derive/ou(?=^|$|')/<b>/
-      - derive/un(?=^|$|')/<n>/
-      - derive/[uv]e(?=^|$|')|ui(?=^|$|')/<m>/
-      - xform/'|<|>//
+      - derive/'([aoe].*)(?=$|')/'<o>$1/
+      - derive/ei(?=$|')/<q>/
+      - derive/ian(?=$|')/<w>/
+      - derive/er(?=$|')|iu(?=$|')/<r>/
+      - derive/[iu]ang(?=$|')/<t>/
+      - derive/ing(?=$|')/<y>/
+      - derive/uo(?=$|')/<o>/
+      - derive/uan(?=$|')/<p>/
+      - derive/([a-z>])i?ong(?=$|')/$1<s>/
+      - derive/[iu]a(?=$|')/<d>/
+      - derive/en(?=$|')/<f>/
+      - derive/eng(?=$|')/<g>/
+      - derive/ang(?=$|')/<h>/
+      - derive/an(?=$|')/<j>/
+      - derive/iao(?=$|')/<z>/
+      - derive/ao(?=$|')/<k>/
+      - derive/in(?=$|')|uai(?=$|')/<c>/
+      - derive/ai(?=$|')/<l>/
+      - derive/ie(?=$|')/<x>/
+      - derive/ou(?=$|')/<b>/
+      - derive/un(?=$|')/<n>/
+      - derive/[uv]e(?=$|')|ui(?=$|')/<m>/
+      - xform/['<>]//
