@@ -520,5 +520,6 @@ speller:
     - erase/^xx$/
     # 超级简拼
     - xform/^/'/ # prepends ' for simplified and unified processing
-    - abbrev/'([zcs]h).+?(?=$|')/'$1/ # zh ch sh 视为整体（ch'sh → 城市），而非（c'h's'h → 吃好睡好）
-    - abbrev/'([a-z]).+?(?=$|')/'$1/
+    # abbrev改为derive可提高简拼优先级，但会干扰全、双拼，使候选词排序混乱
+    - abbrev/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
+    - abbrev/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
