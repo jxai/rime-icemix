@@ -46,7 +46,7 @@ install_files: >-
 
 patch_files:
   default.custom.yaml:
-    - patch/schema_list/@before 0:
+    - patch/schema_list/+:
         - schema: icemix_${double:-flypy}
   radical_pinyin.custom.yaml:
     - patch/+:
