@@ -45,6 +45,9 @@ install_files: >-
   custom_phrase.txt
 
 patch_files:
+  default.custom.yaml:
+    - patch/schema_list/@before 0:
+        - schema: icemix_${double:-flypy}
   radical_pinyin.custom.yaml:
     - patch/+:
         speller/algebra:
@@ -54,9 +57,6 @@ patch_files:
     - patch/+:
         speller/algebra:
           __include: melt_eng.schema.yaml:/algebra_${double:-flypy}
-  default.custom.yaml:
-    - patch/schema_list/+:
-        - schema: icemix_${double:-flypy}
   icemix_common.custom.yaml:
     - patch/+:
         speller/algebra:

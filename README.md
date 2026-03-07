@@ -54,6 +54,16 @@ bash plum/rime-install jxai/rime-icemix:recipes/icemix[:double=<double>,simp=<si
 
 通过[Git](https://github.com/jxai/rime-icemix.git)或[手动下载](https://github.com/jxai/rime-icemix/archive/refs/heads/main.zip)仓库文件到平台相应的Rime配置目录。打补丁配置如下文件，其中相关参数如前所述：
 
+`default.custom.yaml`:
+
+```yaml
+patch:
+  # ...
+  schema_list:
+    - schema: icemix_<double>
+    # ...
+```
+
 `radical_pinyin.custom.yaml`:
 
 ```yaml
@@ -70,16 +80,6 @@ patch:
   # ...
   speller/algebra:
     __include: melt_eng.schema.yaml:/algebra_<double>
-```
-
-`default.custom.yaml`:
-
-```yaml
-patch:
-  # ...
-  schema_list:
-    # ...
-    - schema: icemix_<double>
 ```
 
 `icemix_common.custom.yaml`:
