@@ -26,12 +26,12 @@
 ### 通过[东风破 (plum)](https://github.com/rime/plum)安装 (推荐)
 
 ```bash
-bash plum/rime-install jxai/rime-icemix:recipes/icemix:double=<dps>
+bash plum/rime-install jxai/rime-icemix:recipes/icemix[:double=<double>,simp=<simp>]
 ```
 
-可选`<dps>`参数如下：
+`<double>`为双拼方案，可选参数如下：
 
-- `flypy`: 小鹤 (默认)
+- `flypy` (默认): 小鹤
 - `abc`: 智能ABC
 - `jiajia`: 拼音加加
 - `mspy`: 微软
@@ -39,36 +39,56 @@ bash plum/rime-install jxai/rime-icemix:recipes/icemix:double=<dps>
 - `ziguang`: 紫光
 - `zrm`: 自然码
 
-`<dps>`参数对应的混拼方案会自动加到`default.custom.yaml`的`schema_list`中，重新部署后即可使用。小鹤双拼对应方案显示名为“凇鹤混拼”，其他方案类似。字根反查和中英混输使用的双拼方案也会相应地自动配置。
+`<double>`对应的混拼方案会自动加到`default.custom.yaml`的`schema_list`中，重新部署后即可使用。小鹤双拼对应方案显示名为“凇鹤混拼”，其他方案类似。字根反查和中英混输使用的双拼方案也会相应地自动配置。
+
+`<simp>`为简拼模式，可选参数如下：
+
+- `normal` (默认): 普通模式，简拼作为`abbrev`处理，优先级较低，适合输入长词组
+- `disable`: 禁止简拼输入
+- `boost`: 提高简拼优先级，但会影响正常全、双拼候选的优先排序，慎用
 
 > [!NOTE]
 > 由于东风破安装脚本`rime-install`的局限，再次安装新方案时并不会删除之前选择的方案配置。一般不影响使用，如有必要可手工编辑对应的`.custom.yaml`进行清理。
 
 ### 手动安装
 
-通过[Git](https://github.com/jxai/rime-icemix.git)或[手动下载](https://github.com/jxai/rime-icemix/archive/refs/heads/main.zip)仓库文件到平台相应的Rime配置目录。打补丁配置如下文件，其中参数`<dps>`如前所述：
+通过[Git](https://github.com/jxai/rime-icemix.git)或[手动下载](https://github.com/jxai/rime-icemix/archive/refs/heads/main.zip)仓库文件到平台相应的Rime配置目录。打补丁配置如下文件，其中相关参数如前所述：
 
 `radical_pinyin.custom.yaml`:
 
 ```yaml
 patch:
+  # ...
   speller/algebra:
-    __include: icemix_<dps>.schema.yaml:speller/algebra
+    __include: icemix_<double>.schema.yaml:speller/algebra
 ```
 
 `melt_eng.custom.yaml`:
 
 ```yaml
 patch:
+  # ...
   speller/algebra:
-    __include: melt_eng.schema.yaml:/algebra_<dps>
+    __include: melt_eng.schema.yaml:/algebra_<double>
 ```
 
 `default.custom.yaml`:
 
 ```yaml
 patch:
+  # ...
   schema_list:
     # ...
-    - schema: icemix_<dps>
+    - schema: icemix_<double>
+```
+
+`icemix_common.custom.yaml`:
+
+```yaml
+patch:
+  # ...
+  speller/algebra:
+    __include: icemix_common:algebra_init
+    __append:
+      __include: icemix_common:simp_pinyin_<simp>
 ```

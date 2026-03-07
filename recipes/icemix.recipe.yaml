@@ -57,3 +57,9 @@ patch_files:
   default.custom.yaml:
     - patch/schema_list/+:
         - schema: icemix_${double:-flypy}
+  icemix_common.custom.yaml:
+    - patch/+:
+        speller/algebra:
+          __include: icemix_common:algebra_init
+          __append:
+            __include: icemix_common:simp_pinyin_${simp:-normal}

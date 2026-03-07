@@ -517,9 +517,22 @@ speller:
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
   delimiter: " '" # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
   algebra:
-    - erase/^xx$/
-    # 超级简拼
-    - xform/^/'/ # prepends ' for simplified and unified processing
-    # abbrev改为derive可提高简拼优先级，但会干扰全、双拼，使候选词排序混乱
-    - abbrev/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
-    - abbrev/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
+    __include: algebra_init
+    __append:
+      __include: simp_pinyin_normal
+
+algebra_init:
+  - erase/^xx$/
+  - xform/^/'/ # prepends ' for simplified and unified processing
+
+# 超级简拼
+simp_pinyin_normal:
+  - abbrev/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
+  - abbrev/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
+simp_pinyin_boost:
+  # 提高简拼优先级，但会影响正常全、双拼候选的优先排序，慎用
+  - derive/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
+  - derive/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
+# 禁止简拼
+simp_pinyin_disable:
+  - null
