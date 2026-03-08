@@ -517,22 +517,30 @@ speller:
   initials: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA
   delimiter: " '" # 第一位<空格>是拼音之间的分隔符；第二位<'>表示可以手动输入单引号来分割拼音。
   algebra:
-    __include: algebra_init
+    __include: algebra_common
     __append:
       __include: simp_pinyin_normal
 
-algebra_init:
+algebra_common:
   - erase/^xx$/
   - xform/^/'/ # prepends ' for simplified and unified processing
+  ### v u 转换
+  # 雾凇的词库严格按照正确的 u v(ü) 注音的，下面两行支持使用错误的拼音，例如 qv nue 来响应 qu nve
+  - derive/'([nl])ve(?=$|')/'$1ue/
+  - derive/'([jqxy])u/'$1v/
+  # 以防引入的其他词库没按照正确方式注音，也做一个转换
+  - derive/'([nl])ue(?=$|')/'$1ve/
+  - derive/'([jqxy])v/'$1u/
 
-# 超级简拼
+### 超级简拼
 simp_pinyin_normal:
+  # 默认模式，因abbrev有惩罚机制，简拼优先级低
   - abbrev/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
   - abbrev/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
 simp_pinyin_boost:
   # 提高简拼优先级，但会影响正常全、双拼候选的优先排序，慎用
   - derive/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
   - derive/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
-# 禁止简拼
 simp_pinyin_disable:
+  # 禁止简拼
   - null

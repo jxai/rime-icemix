@@ -99,7 +99,7 @@ patch:
 patch:
   # ...
   speller/algebra:
-    __include: icemix_common:algebra_init
+    __include: icemix_common:algebra_common
     __append:
       __include: icemix_common:simp_pinyin_<simp>
   translator/dictionary: rime_<dict>

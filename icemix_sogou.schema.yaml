@@ -126,7 +126,6 @@ speller:
     algebra/+:
       # 和拆字反查共用混拼方案
       # NOTE: prepended with ' in icemix_common
-      - derive/'([jqxy])u(?=$|')/'$1v/
       - derive/'([aoe].*?)(?=$|')/'o$1/
       - derive/'([ae])(.*?)(?=$|')/'$1$1$2/
       - derive/iu(?=$|')/<q>/

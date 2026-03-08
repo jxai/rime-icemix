@@ -63,7 +63,7 @@ patch_files:
   icemix_common.custom.yaml:
     - patch/+:
         speller/algebra:
-          __include: icemix_common:algebra_init
+          __include: icemix_common:algebra_common
           __append:
             __include: icemix_common:simp_pinyin_${simp:-normal}
         translator/dictionary: rime_${dict:-ice}
