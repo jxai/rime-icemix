@@ -17,6 +17,8 @@ recipe:
 install_files: >-
   cn_dicts/*.*
   en_dicts/*.*
+  frost/cn_dicts/*.*
+  frost/cn_dicts_cell/*.*
   opencc/*.*
   lua/*.*
   lua/cold_word_drop/*.*
@@ -25,6 +27,7 @@ install_files: >-
   weasel.yaml
   rime_ice.schema.yaml
   rime_ice.dict.yaml
+  rime_frost.dict.yaml
   t9.schema.yaml
   icemix_common.yaml
   icemix_zrm.schema.yaml
@@ -63,3 +66,4 @@ patch_files:
           __include: icemix_common:algebra_init
           __append:
             __include: icemix_common:simp_pinyin_${simp:-normal}
+        translator/dictionary: rime_${dict:-ice}
