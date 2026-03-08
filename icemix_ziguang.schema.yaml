@@ -110,30 +110,30 @@ speller:
     alphabet: zyxwvutsrqponmlkjihgfedcbaZYXWVUTSRQPONMLKJIHGFEDCBA;` # 紫光双拼用 ; 键映射 ing，需要将 ; 加入 alphabet
     algebra/+:
       # 和拆字反查共用混拼方案
-      # NOTE: prepended with ' in icemix_common
-      - derive/'([aoe].*?)(?=$|')/'<o>$1/
-      - derive/en(?=$|')/<w>/
-      - derive/eng(?=$|')/<t>/
-      - derive/(in|uai)(?=$|')/<y>/
+      # NOTE: wrapped with '' in icemix_common
+      - derive/'([aoe].*?)'/'<o>$1'/
+      - derive/en'/<w>'/
+      - derive/eng'/<t>'/
+      - derive/(in|uai)'/<y>'/
       - derive/'zh/'<u>/
       - derive/'sh/'<i>/
       - derive/'ch/'<a>/
-      - derive/uo(?=$|')/<o>/
-      - derive/ai(?=$|')/<p>/
-      - derive/[iu]ang(?=$|')/<g>/
-      - derive/ang(?=$|')/<s>/
-      - derive/ie(?=$|')/<d>/
-      - derive/ian(?=$|')/<f>/
-      - derive/([a-z>])i?ong(?=$|')/$1<h>/
-      - derive/(er|iu)(?=$|')/<j>/
-      - derive/ei(?=$|')/<k>/
-      - derive/uan(?=$|')/<l>/
-      - derive/ing(?=$|')/;/
-      - derive/ou(?=$|')/<z>/
-      - derive/[iu]a(?=$|')/<x>/
-      - derive/iao(?=$|')/<b>/
-      - derive/(ue|ui|ve)(?=$|')/<n>/
-      - derive/un(?=$|')/<m>/
-      - derive/ao(?=$|')/<q>/
-      - derive/an(?=$|')/<r>/
+      - derive/uo'/<o>'/
+      - derive/ai'/<p>'/
+      - derive/[iu]ang'/<g>'/
+      - derive/ang'/<s>'/
+      - derive/ie'/<d>'/
+      - derive/ian'/<f>'/
+      - derive/([a-z>])i?ong'/$1<h>'/
+      - derive/(er|iu)'/<j>'/
+      - derive/ei'/<k>'/
+      - derive/uan'/<l>'/
+      - derive/ing'/;'/
+      - derive/ou'/<z>'/
+      - derive/[iu]a'/<x>'/
+      - derive/iao'/<b>'/
+      - derive/(ue|ui|ve)'/<n>'/
+      - derive/un'/<m>'/
+      - derive/ao'/<q>'/
+      - derive/an'/<r>'/
       - xform/['<>]//

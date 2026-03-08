@@ -101,30 +101,30 @@ speller:
   __patch:
     algebra/+:
       # 和拆字反查共用混拼方案
-      # NOTE: prepended with ' in icemix_common
+      # NOTE: wrapped with '' in icemix_common
       - derive/'zh/'<a>/
       - derive/'ch/'<e>/
       - derive/'sh/'<v>/
-      - derive/'([aoe].*?)(?=$|')/'<o>$1/
-      - derive/ei(?=$|')/<q>/
-      - derive/ian(?=$|')/<w>/
-      - derive/(er|iu)(?=$|')/<r>/
-      - derive/[iu]ang(?=$|')/<t>/
-      - derive/ing(?=$|')/<y>/
-      - derive/uo(?=$|')/<o>/
-      - derive/uan(?=$|')/<p>/
-      - derive/([a-z>])i?ong(?=$|')/$1<s>/
-      - derive/[iu]a(?=$|')/<d>/
-      - derive/en(?=$|')/<f>/
-      - derive/eng(?=$|')/<g>/
-      - derive/ang(?=$|')/<h>/
-      - derive/an(?=$|')/<j>/
-      - derive/iao(?=$|')/<z>/
-      - derive/ao(?=$|')/<k>/
-      - derive/(in|uai)(?=$|')/<c>/
-      - derive/ai(?=$|')/<l>/
-      - derive/ie(?=$|')/<x>/
-      - derive/ou(?=$|')/<b>/
-      - derive/un(?=$|')/<n>/
-      - derive/([uv]e|ui)(?=$|')/<m>/
+      - derive/'([aoe].*?)'/'<o>$1'/
+      - derive/ei'/<q>'/
+      - derive/ian'/<w>'/
+      - derive/(er|iu)'/<r>'/
+      - derive/[iu]ang'/<t>'/
+      - derive/ing'/<y>'/
+      - derive/uo'/<o>'/
+      - derive/uan'/<p>'/
+      - derive/([a-z>])i?ong'/$1<s>'/
+      - derive/[iu]a'/<d>'/
+      - derive/en'/<f>'/
+      - derive/eng'/<g>'/
+      - derive/ang'/<h>'/
+      - derive/an'/<j>'/
+      - derive/iao'/<z>'/
+      - derive/ao'/<k>'/
+      - derive/(in|uai)'/<c>'/
+      - derive/ai'/<l>'/
+      - derive/ie'/<x>'/
+      - derive/ou'/<b>'/
+      - derive/un'/<n>'/
+      - derive/([uv]e|ui)'/<m>'/
       - xform/['<>]//

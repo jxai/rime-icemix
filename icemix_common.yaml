@@ -523,24 +523,25 @@ speller:
 
 algebra_common:
   - erase/^xx$/
-  - xform/^/'/ # prepends ' for simplified and unified processing
+  - xform/^/'/ # ''-wrap for simplified processing
+  - xform/$/'/
   ### v u 转换
   # 雾凇的词库严格按照正确的 u v(ü) 注音的，下面两行支持使用错误的拼音，例如 qv nue 来响应 qu nve
-  - derive/'([nl])ve(?=$|')/'$1ue/
+  - derive/'([nl])ve'/'$1ue'/
   - derive/'([jqxy])u/'$1v/
   # 以防引入的其他词库没按照正确方式注音，也做一个转换
-  - derive/'([nl])ue(?=$|')/'$1ve/
+  - derive/'([nl])ue'/'$1ve'/
   - derive/'([jqxy])v/'$1u/
 
 ### 超级简拼
 simp_pinyin_normal:
   # 默认模式，因abbrev有惩罚机制，简拼优先级低
-  - abbrev/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
-  - abbrev/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
+  - abbrev/'([zcs]h|[a-z]).+?'/'$1'/ # 卷舌音用 zh ch sh 输入
+  - abbrev/'([zcs])h'/'$1'/ # 也可用 z c s 不区分平卷舌
 simp_pinyin_boost:
   # 提高简拼优先级，但会影响正常全、双拼候选的优先排序，慎用
-  - derive/'([zcs]h|[a-z]).+?(?=$|')/'$1/ # 卷舌音用 zh ch sh 输入
-  - derive/'([zcs])h(?=$|')/'$1/ # 也可用 z c s 不区分平卷舌
+  - derive/'([zcs]h|[a-z]).+?'/'$1'/ # 卷舌音用 zh ch sh 输入
+  - derive/'([zcs])h'/'$1'/ # 也可用 z c s 不区分平卷舌
 simp_pinyin_disable:
   # 禁止简拼
   - null

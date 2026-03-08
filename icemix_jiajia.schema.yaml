@@ -101,31 +101,31 @@ speller:
   __patch:
     algebra/+:
       # 和拆字反查共用混拼方案
-      # NOTE: prepended with ' in icemix_common
-      - derive/'([aoe])([ioun]|ng)?(?=$|')/'$1$1$2/
-      - derive/iu(?=$|')/<n>/
-      - derive/[iu]a(?=$|')/<b>/
-      - derive/[uv]an(?=$|')/<c>/
-      - derive/[uv]e(?=$|')/<x>/
-      - derive/(ing|er)(?=$|')/<q>/
+      # NOTE: wrapped with '' in icemix_common
+      - derive/'([aoe])([ioun]|ng)?'/'$1$1$2'/
+      - derive/iu'/<n>'/
+      - derive/[iu]a'/<b>'/
+      - derive/[uv]an'/<c>'/
+      - derive/[uv]e'/<x>'/
+      - derive/(ing|er)'/<q>'/
       - derive/'sh/'<i>/
       - derive/'ch/'<u>/
       - derive/'zh/'<v>/
-      - derive/uo(?=$|')/<o>/
-      - derive/[uv]n(?=$|')/<z>/
-      - derive/([a-z>])i?ong(?=$|')/$1<y>/
-      - derive/[iu]ang(?=$|')/<h>/
-      - derive/([a-z>])en(?=$|')/$1<r>/
-      - derive/([a-z>])eng(?=$|')/$1<t>/
-      - derive/([a-z>])ang(?=$|')/$1<g>/
-      - derive/ian(?=$|')/<j>/
-      - derive/([a-z>])an(?=$|')/$1<f>/
-      - derive/iao(?=$|')/<k>/
-      - derive/([a-z>])ao(?=$|')/$1<d>/
-      - derive/([a-z>])ai(?=$|')/$1<s>/
-      - derive/([a-z>])ei(?=$|')/$1<w>/
-      - derive/ie(?=$|')/<m>/
-      - derive/ui(?=$|')/<v>/
-      - derive/([a-z>])ou(?=$|')/$1<p>/
-      - derive/in(?=$|')/<l>/
+      - derive/uo'/<o>'/
+      - derive/[uv]n'/<z>'/
+      - derive/([a-z>])i?ong'/$1<y>'/
+      - derive/[iu]ang'/<h>'/
+      - derive/([a-z>])en'/$1<r>'/
+      - derive/([a-z>])eng'/$1<t>'/
+      - derive/([a-z>])ang'/$1<g>'/
+      - derive/ian'/<j>'/
+      - derive/([a-z>])an'/$1<f>'/
+      - derive/iao'/<k>'/
+      - derive/([a-z>])ao'/$1<d>'/
+      - derive/([a-z>])ai'/$1<s>'/
+      - derive/([a-z>])ei'/$1<w>'/
+      - derive/ie'/<m>'/
+      - derive/ui'/<v>'/
+      - derive/([a-z>])ou'/$1<p>'/
+      - derive/in'/<l>'/
       - xform/['<>]//
