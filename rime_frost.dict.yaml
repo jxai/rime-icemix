@@ -9,7 +9,7 @@ import_tables:
   - frost/cn_dicts/41448  # 大字表（按需启用）
   - frost/cn_dicts/base     # 基础词库
   - frost/cn_dicts/ext      # 扩展词库
-  # - frost/cn_dicts/tencent  # 腾讯词向量（大词库，部署时间较长）
+  - frost/cn_dicts/tencent  # 腾讯词向量（大词库，部署时间较长）
   - frost/cn_dicts/others   # 一些杂项
 
   # 细胞词库
