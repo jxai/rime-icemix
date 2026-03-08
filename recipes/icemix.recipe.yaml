@@ -55,11 +55,11 @@ patch_files:
     - patch/+:
         speller/algebra:
           # 拆字反查共用对应的混拼方案
-          __include: icemix_${double:-flypy}.schema.yaml:speller/algebra
+          __include: icemix_${double:-flypy}.schema:speller/algebra
   melt_eng.custom.yaml:
     - patch/+:
         speller/algebra:
-          __include: melt_eng.schema.yaml:/algebra_${double:-flypy}
+          __include: melt_eng.schema:/algebra_${double:-flypy}
   icemix_common.custom.yaml:
     - patch/+:
         speller/algebra:

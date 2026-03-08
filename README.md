@@ -32,6 +32,9 @@
 bash plum/rime-install jxai/rime-icemix:recipes/icemix[:double=<double>,simp=<simp>,dict=<dict>]
 ```
 
+> [!NOTE]
+> `[...]`部分及其中任何参数均为可选，若省略则采用其默认值
+
 `<double>`选择双拼方案，可选参数如下：
 
 - `flypy` (默认): 小鹤
