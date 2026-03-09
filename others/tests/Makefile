@@ -1,9 +1,9 @@
-RIME_SRC  = ../../../librime/src
-CC        = gcc
-CFLAGS    = -I$(RIME_SRC) -Wall -Wextra -g
-# Link against the versioned .so directly (librime-dev not installed)
-LIBRIME   ?= /usr/lib/x86_64-linux-gnu/librime.so.1
-LDFLAGS   = $(LIBRIME)
+CC      = gcc
+CFLAGS  = -Wall -Wextra -g
+LDFLAGS = -lrime
+
+_ := $(if $(shell pkg-config --exists rime 2>/dev/null && echo ok),, \
+       $(error librime not found. Install librime-dev (Debian/Ubuntu) or librime-devel (Fedora) and retry))
 
 .PHONY: all test clean
 
